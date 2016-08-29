@@ -17,10 +17,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private static final List colors = Arrays.asList(Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.CYAN);
 
+    private Callback mListener;
+
+    public RecyclerViewAdapter(Callback listener) {
+        mListener = listener;
+    }
+
     @Override
     public CardsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_card_view, parent, false);
-        return new CardsViewHolder(view);
+        return new CardsViewHolder(view, mListener);
     }
 
     @Override
@@ -34,16 +40,29 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return 5;
     }
 
-    public static class CardsViewHolder extends RecyclerView.ViewHolder {
+    public static class CardsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public CardView mCardView;
         public TextView mTitle;
+        public Callback mListener;
 
-        public CardsViewHolder(View itemView) {
+        public CardsViewHolder(View itemView, Callback listener) {
             super(itemView);
+            itemView.setOnClickListener(this);
+            mListener = listener;
             mCardView = (CardView)itemView.findViewById(R.id.card_view);
             mTitle = (TextView)itemView.findViewById(R.id.info_text);
         }
 
+        @Override
+        public void onClick(View v) {
+            if (mListener != null) {
+                mListener.onCardClick(getAdapterPosition());
+            }
+        }
+    }
+
+    public interface Callback {
+        void onCardClick(int position);
     }
 }
