@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity {
         private static final String TAG = "LoginActivity";
-        private static final int REQUEST_SIGNUP = 0;
+        private static final int REQUEST_LOGIN = 0;
 
         @Bind(R.id.input_email) EditText mEmailText;
         @Bind(R.id.input_password) EditText mPasswordText;
@@ -49,8 +49,8 @@ public class LoginActivity extends AppCompatActivity {
             final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
             progressDialog.setIndeterminate(true);
             progressDialog.setMessage("Authenticating...");
-            progressDialog.show();
             progressDialog.setCancelable(false);
+            progressDialog.show();
 
             final String email = mEmailText.getText().toString();
             final String password = mPasswordText.getText().toString();
@@ -59,14 +59,14 @@ public class LoginActivity extends AppCompatActivity {
                     new Runnable() {
                         public void run() {
                             // On complete call either onLoginSuccess or onLoginFailed
+                            progressDialog.dismiss();
                             if(email.equalsIgnoreCase("a@test.com") && password.equalsIgnoreCase("password")) {
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                startActivityForResult(intent, REQUEST_SIGNUP);
+                                startActivityForResult(intent, REQUEST_LOGIN);
                                 finish();
                             } else {
                                 onLoginFailed();
                             }
-                            progressDialog.dismiss();
                         }
                     });
         }
