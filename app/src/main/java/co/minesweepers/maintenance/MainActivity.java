@@ -9,18 +9,23 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import co.minesweepers.maintenance.adapters.RecyclerViewAdapter;
 
 public class MainActivity extends AppCompatActivity implements RecyclerViewAdapter.Callback {
+
+    @Bind(R.id.recycler_view) RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+        ButterKnife.bind(this);
+
         LinearLayoutManager layoutManager  = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new RecyclerViewAdapter(this));
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setAdapter(new RecyclerViewAdapter(this));
     }
 
     @Override
