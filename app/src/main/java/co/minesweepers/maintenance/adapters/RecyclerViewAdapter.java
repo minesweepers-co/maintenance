@@ -15,7 +15,7 @@ import co.minesweepers.maintenance.R;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.CardsViewHolder> {
 
-    public static final List colors = Arrays.asList(Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.CYAN);
+    private static final List colors = Arrays.asList(Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.CYAN);
 
     @Override
     public CardsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
