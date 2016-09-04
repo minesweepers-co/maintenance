@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "28374853990",
+    "firebase_url": "https://maintenance-6ea5d.firebaseio.com",
+    "project_id": "maintenance-6ea5d",
+    "storage_bucket": "maintenance-6ea5d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28374853990:android:168f5e8f1de129b4",
+        "android_client_info": {
+          "package_name": "co.minesweepers.maintenance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28374853990-qpdg2p1qtn7b3h7j3f5n0pdpmbvbq04m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnECX3muQsX6j9P332zfRJezPqsUje7Xk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
